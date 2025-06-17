@@ -1,6 +1,6 @@
-# calculator
+# Calculator and Converter
 
-A new Flutter project.
+Calculator app with unit and temperature converter
 
 ## Getting Started
 
