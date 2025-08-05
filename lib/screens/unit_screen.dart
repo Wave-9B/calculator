@@ -1,4 +1,4 @@
-import 'package:calculator/theme.dart';
+import 'package:calculator/themes/dark_theme.dart';
 import 'package:calculator/utils/custom_button_values.dart';
 import 'package:calculator/widgets/app_drawer.dart';
 import 'package:calculator/widgets/custom_dropdown.dart';
@@ -211,8 +211,7 @@ class _UnitScreenState extends State<UnitScreen> {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Material(
-        //color: getBtnColor(value), //aqui muda cor do fundo do botão
-        color: Colors.black87, // cor do fundo do botão
+        color: AppColors.appButtonsColor, // cor do fundo do botão
         // Clip.hardEdge ao clicar o botão, o feedback visual não sai do contorno dele
         clipBehavior: Clip.hardEdge,
         shape: RoundedRectangleBorder(

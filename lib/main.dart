@@ -1,7 +1,7 @@
 import 'package:calculator/routes/app_routes.dart';
 import 'package:calculator/screens/calculator_screen.dart';
-//import 'package:calculator/screens/temperature_screen.dart';
-import 'package:calculator/theme.dart';
+import 'package:calculator/themes/dark_theme.dart';
+//import 'package:calculator/themes/ligth_theme.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,12 +14,12 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    Widget mainScreen = CalculatorScreen();
     return MaterialApp(
       //return MaterialApp
       title: 'Calculator',
-      // theme: ThemeData.dark(),
-      theme: primaryTheme, //use the primary theme defined in theme.dart
-      home: CalculatorScreen(),
+      theme: primaryTheme, // this uses the primary theme defined in theme.dart
+      home: mainScreen,
       routes: AppRoutes.routes, //use the routes defined in app_routes.dart
     );
   }

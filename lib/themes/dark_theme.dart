@@ -13,6 +13,7 @@ class AppColors {
   static Color successColor = const Color.fromRGBO(9, 149, 110, 1);
   static Color highlightColor = const Color.fromARGB(255, 255, 185, 30);
   //-----------------------------------------------------------------------
+  static Color appButtonsColor = Colors.black87; // cor de fundo dos botões
   static Color calcNumberColor = const Color.fromARGB(221, 244, 244, 244);
   static Color operandTextColor = const Color.fromARGB(255, 122, 157, 255);
   static Color delClearTextColor = const Color.fromARGB(255, 221, 100, 48);
@@ -77,7 +78,7 @@ ThemeData primaryTheme = ThemeData(
   ),
 
   //Card Theme
-  cardTheme: CardTheme(
+  cardTheme: CardThemeData(
     color: AppColors.secondaryColor.withValues(alpha: 0.5),
     surfaceTintColor: Colors.transparent,
     shape: const RoundedRectangleBorder(),
@@ -95,7 +96,7 @@ ThemeData primaryTheme = ThemeData(
   ),
 
   // dialog theme
-  dialogTheme: DialogTheme(
+  dialogTheme: DialogThemeData(
     backgroundColor: AppColors.secondaryAccent,
     surfaceTintColor: Colors.transparent, // remove um avermelhado
   ),

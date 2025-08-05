@@ -1,4 +1,4 @@
-import 'package:calculator/theme.dart';
+import 'package:calculator/themes/dark_theme.dart';
 import 'package:flutter/material.dart';
 
 class AppDrawer extends StatelessWidget {
@@ -46,6 +46,19 @@ class AppDrawer extends StatelessWidget {
                 },
               ),
               ListTile(
+                // scientific calculator
+                leading: Icon(Icons.science),
+                title: Text(
+                  Localizations.localeOf(context).languageCode == 'pt'
+                      ? 'Calculadora Científica (beta)'
+                      : 'Scientific Calculator (beta)',
+                ),
+
+                onTap: () {
+                  Navigator.pushReplacementNamed(context, '/scientific');
+                },
+              ),
+              ListTile(
                 // length
                 leading: Icon(Icons.straighten),
                 title: Text(
@@ -74,37 +87,21 @@ class AppDrawer extends StatelessWidget {
                   Navigator.pushReplacementNamed(context, '/temperature');
                 },
               ),
-              ListTile(
-                // scientific calculator
-                leading: Icon(Icons.science),
-                title: Text(
-                  Localizations.localeOf(context).languageCode == 'pt'
-                      ? 'Calculadora Científica'
-                      : 'Scientific Calculator',
-                ),
 
-                onTap: () {
-                  // ação do menu
-                  //Navigator.pop(context);
-                  //await Future.delayed(const Duration(milliseconds: 100));
-                  Navigator.pushReplacementNamed(context, '/scientific');
-                },
-              ),
+              // ListTile(
+              //   // currency
+              //   leading: Icon(Icons.currency_exchange),
+              //   title: Text(
+              //     Localizations.localeOf(context).languageCode == 'pt'
+              //         ? 'Conversor de Moedas'
+              //         : 'Currency Converter',
+              //   ),
 
-              ListTile(
-                // currency
-                leading: Icon(Icons.currency_exchange),
-                title: Text(
-                  Localizations.localeOf(context).languageCode == 'pt'
-                      ? 'Conversor de Moedas'
-                      : 'Currency Converter',
-                ),
-
-                onTap: () {
-                  // ação do menu
-                  Navigator.pushReplacementNamed(context, '/currency');
-                },
-              ),
+              //   onTap: () {
+              //     // ação do menu
+              //     Navigator.pushReplacementNamed(context, '/currency');
+              //   },
+              // ),
             ],
           ),
         ),

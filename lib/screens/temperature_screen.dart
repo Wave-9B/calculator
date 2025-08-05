@@ -1,4 +1,4 @@
-import 'package:calculator/theme.dart';
+import 'package:calculator/themes/dark_theme.dart';
 import 'package:calculator/widgets/app_drawer.dart';
 import 'package:calculator/widgets/custom_converter_screen.dart';
 import 'package:calculator/utils/custom_button_values.dart';
@@ -106,7 +106,7 @@ class _TemperatureScreenState extends State<TemperatureScreen> {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Material(
-        color: Colors.black87,
+        color: AppColors.appButtonsColor,
         clipBehavior: Clip.hardEdge,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(80.0),

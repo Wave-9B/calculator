@@ -9,7 +9,24 @@ class ScienceBtn {
   static const String calculate = "=";
   static const String dot = ".";
   static const String plusMinus = "+/-";
+  // scientific calculator buttons
   static const String raiz = "√";
+  static const String pow = "^";
+  static const String pi = "π";
+  static const String e = "e";
+  static const String leftParen = "(";
+  static const String rightParen = ")";
+  static const String fact = "!";
+  static const String ln = "ln";
+  static const String log = "log";
+  static const String sin = "sin";
+  static const String cos = "cos";
+  static const String tan = "tan";
+  static const String sinh = "sinh";
+  static const String cosh = "cosh";
+  static const String tanh = "tanh";
+  static const String exp = "exp";
+  static const String abs = "abs";
 
   static const String n0 = "0";
   static const String n1 = "1";
@@ -22,23 +39,37 @@ class ScienceBtn {
   static const String n8 = "8";
   static const String n9 = "9";
 
-  static const List<String> buttonValues = [
+  static const List<String> scienceButtonValues = [
     del,
     clr,
+    leftParen,
+    rightParen,
+    sin,
+    cos,
+    tan,
+    log,
+    ln,
+    pow,
+    raiz,
+    fact,
+    pi,
+    e,
+    abs,
+    exp,
     plusMinus,
     multiply,
+    divide,
+    add,
+    subtract,
     n7,
     n8,
     n9,
-    divide,
     n4,
     n5,
     n6,
-    subtract,
     n1,
     n2,
     n3,
-    add,
     n0,
     dot,
     per,

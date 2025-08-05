@@ -1,5 +1,5 @@
 import 'package:calculator/utils/calc_button_values.dart';
-import 'package:calculator/theme.dart';
+import 'package:calculator/themes/dark_theme.dart';
 import 'package:calculator/widgets/app_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -76,7 +76,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
             //buttons
             Wrap(
               children:
-                  Btn.buttonValues
+                  ScienceBtn.buttonValues
                       .map(
                         (value) => SizedBox(
                           width:
@@ -102,7 +102,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
       padding: const EdgeInsets.all(8.0),
       child: Material(
         //color: getBtnColor(value), //aqui muda cor do fundo do botão
-        color: Colors.black87, // cor do fundo do botão
+        color: AppColors.appButtonsColor, // cor do fundo do botão
         // Clip.hardEdge ao clicar o botão, o feedback visual não sai do contorno dele
         clipBehavior: Clip.hardEdge,
         shape: RoundedRectangleBorder(
@@ -124,25 +124,25 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
   }
 
   void onBtnTap(String value) {
-    if (value == Btn.del) {
+    if (value == ScienceBtn.del) {
       delete();
       return;
     }
 
-    if (value == Btn.clr) {
+    if (value == ScienceBtn.clr) {
       clearAll();
       return;
     }
-    if (value == Btn.per) {
+    if (value == ScienceBtn.per) {
       convertToPercentage();
       return;
     }
-    if (value == Btn.plusMinus) {
+    if (value == ScienceBtn.plusMinus) {
       togglePlusMinus();
       return;
     }
 
-    if (value == Btn.calculate) {
+    if (value == ScienceBtn.calculate) {
       calculate();
       return;
     }
@@ -164,17 +164,17 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
         "$number1 $operand $number2"; // update expressão p/ exibir o cálculo
 
     switch (operand) {
-      case Btn.add:
+      case ScienceBtn.add:
         result = num1 + num2;
 
         break;
-      case Btn.subtract:
+      case ScienceBtn.subtract:
         result = num1 - num2;
         break;
-      case Btn.multiply:
+      case ScienceBtn.multiply:
         result = num1 * num2;
         break;
-      case Btn.divide:
+      case ScienceBtn.divide:
         if (num2 == 0) {
           // se o divisor for 0, não faz nada
           result = 0.0;
@@ -275,33 +275,33 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
   // acrescenta/anexa valor ao number1, operand e number2
   void appendValue(String value) {
     // Se for operador, já retorna como está
-    if (value != Btn.dot && int.tryParse(value) == null) {
+    if (value != ScienceBtn.dot && int.tryParse(value) == null) {
       if (operand.isNotEmpty && number2.isNotEmpty) {
         calculate();
       }
       operand = value;
     } else if (number1.isEmpty || operand.isEmpty) {
       // number1 logic
-      if (value == Btn.dot && number1.contains(Btn.dot)) return;
-      if (value == Btn.dot && (number1.isEmpty || number1 == Btn.n0)) {
+      if (value == ScienceBtn.dot && number1.contains(ScienceBtn.dot)) return;
+      if (value == ScienceBtn.dot && (number1.isEmpty || number1 == ScienceBtn.n0)) {
         value = "0.";
       }
       // Evita múltiplos zeros à esquerda em number1
-      if (value == Btn.n0 && (number1 == "" || number1 == "0")) return;
-      if (number1 == "0" && value != Btn.dot) {
+      if (value == ScienceBtn.n0 && (number1 == "" || number1 == "0")) return;
+      if (number1 == "0" && value != ScienceBtn.dot) {
         number1 = value; // substitui o zero inicial
       } else {
         number1 += value;
       }
     } else if (number2.isEmpty || operand.isNotEmpty) {
       // number2 logic
-      if (value == Btn.dot && number2.contains(Btn.dot)) return;
-      if (value == Btn.dot && (number2.isEmpty || number2 == Btn.n0)) {
+      if (value == ScienceBtn.dot && number2.contains(ScienceBtn.dot)) return;
+      if (value == ScienceBtn.dot && (number2.isEmpty || number2 == ScienceBtn.n0)) {
         value = "0.";
       }
       // Evita múltiplos zeros à esquerda em number2
-      if (value == Btn.n0 && (number2 == "" || number2 == "0")) return;
-      if (number2 == "0" && value != Btn.dot) {
+      if (value == ScienceBtn.n0 && (number2 == "" || number2 == "0")) return;
+      if (number2 == "0" && value != ScienceBtn.dot) {
         number2 = value; // substitui o zero inicial
       } else {
         number2 += value;
@@ -336,32 +336,32 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
 
   //--------------------------
   Color getBtnColor(value) {
-    return [Btn.del, Btn.clr].contains(value)
+    return [ScienceBtn.del, ScienceBtn.clr].contains(value)
         ? const Color.fromARGB(255, 66, 72, 158)
         : [
-          Btn.per,
-          Btn.multiply,
-          Btn.add,
-          Btn.subtract,
-          Btn.divide,
-          Btn.calculate,
-          Btn.plusMinus,
+          ScienceBtn.per,
+          ScienceBtn.multiply,
+          ScienceBtn.add,
+          ScienceBtn.subtract,
+          ScienceBtn.divide,
+          ScienceBtn.calculate,
+          ScienceBtn.plusMinus,
         ].contains(value)
         ? const Color.fromARGB(255, 64, 77, 113)
         : Colors.black87;
   }
 
   Color getTextBtnColor(value) {
-    return [Btn.del, Btn.clr].contains(value)
+    return [ScienceBtn.del, ScienceBtn.clr].contains(value)
         ? AppColors.delClearTextColor
         : [
-          Btn.per,
-          Btn.multiply,
-          Btn.add,
-          Btn.subtract,
-          Btn.divide,
-          Btn.calculate,
-          Btn.plusMinus,
+          ScienceBtn.per,
+          ScienceBtn.multiply,
+          ScienceBtn.add,
+          ScienceBtn.subtract,
+          ScienceBtn.divide,
+          ScienceBtn.calculate,
+          ScienceBtn.plusMinus,
         ].contains(value)
         ? AppColors.operandTextColor
         : AppColors.calcNumberColor;
@@ -370,16 +370,16 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
   TextStyle getBtnTextStyle(value) {
     return GoogleFonts.nunitoSans(
       fontSize:
-          value == Btn.subtract ||
-                  value == Btn.multiply ||
-                  value == Btn.divide ||
-                  value == Btn.add ||
-                  value == Btn.calculate
+          value == ScienceBtn.subtract ||
+                  value == ScienceBtn.multiply ||
+                  value == ScienceBtn.divide ||
+                  value == ScienceBtn.add ||
+                  value == ScienceBtn.calculate
               ? 32 // apenas subtract tem tamanho diferente
-              : value == Btn.del ||
-                  value == Btn.clr ||
-                  value == Btn.per ||
-                  value == Btn.plusMinus
+              : value == ScienceBtn.del ||
+                  value == ScienceBtn.clr ||
+                  value == ScienceBtn.per ||
+                  value == ScienceBtn.plusMinus
               ? 24 // del e clr tem tamanho diferente
               : 28,
       color: getTextBtnColor(value), // aqui muda a cor do texto do botão
