@@ -46,7 +46,7 @@ class _ScientificScreenState extends State<ScientificScreen> {
                       Text(
                         expression,
                         style: const TextStyle(
-                          fontSize: 28,
+                          fontSize: 42,
                           color: Color.fromARGB(255, 214, 214, 214),
                         ),
                         textAlign: TextAlign.end,
@@ -54,7 +54,7 @@ class _ScientificScreenState extends State<ScientificScreen> {
                       Text(
                         result.isEmpty ? "0" : result,
                         style: const TextStyle(
-                          fontSize: 48,
+                          fontSize: 38,
                           fontWeight: FontWeight.bold,
                         ),
                         textAlign: TextAlign.end,
