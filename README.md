@@ -1,6 +1,6 @@
 # Calculator and Converter
 
-Calculator app with unit and temperature converter
+Simple Calculator app with unit/temperature converter and Scientific Calculator (beta)
 
 ## Getting Started
 
