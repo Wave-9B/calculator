@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:calculator/themes/dark_theme.dart';
 import 'package:calculator/utils/scientific_calc_button_values.dart';
 import 'package:calculator/widgets/app_drawer.dart';
